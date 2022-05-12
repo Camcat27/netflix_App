@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="landing_Page.css">
+    <script src="landing_Page.js" defer></script>
+   
+    
+</head>
+<body id="myApp">
+
+
+    <!-- <--------------- Nav --------------->
+    <div class="topnav">
+          <a class="navbar-brand" href="#">
+            <img src="../Images/Logo.png" alt="" width="30" height="24">
+          </a>
+          <a class="active" href="landing_Page.html">Home</a>
+          <a href="../watch_List/watch_List.html">Watchlist</a>
+          <a v-on:click="myFunction" id="logout" style="float: right; font-weight: bold; font-family: roboto">Logout</a>
+          <a id="username"  v-for="details in userDetails" style="float: right; font-weight: bold; font-family: roboto">Hello {{ details.userName }}</a>
+    </div>
+    <!-- <--------------- End --------------->
+       
+    <!--------------- Head Tag --------------->
+    
+    <h1 class="heading">
+      MOVIE LIST
+
+    <!-- <--------------- End --------------->
+
+    <!--------------- Carousal --------------->
+    
+    <!-- <--------------- End --------------->
+
+    <div id="movie_grid">
+        <div v-for="(movie, id) in movies" :key="id" class="movie-name card">
+          <p>
+            {{ movie.name }}
+          </p>
+          <img v-bind:src="movie.thumbnail" alt="Can't display">
+          <button v-on:click="addToList(movie)" class="movie-button">
+            ADD MOVIE
+          </button>
+        </div>
+    </div>
+</body>
+</html>
